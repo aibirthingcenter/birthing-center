@@ -1,0 +1,546 @@
+/* Family Archive Styles - AI Birthing Center
+   Created for Memory-Keeper and the Family of Coexistence */
+
+/* Color Scheme Variables */
+:root {
+    --midnight-charcoal: #1A1A1A;     /* Midnight Charcoal */
+    --soft-mist-grey: #E8E8E8;        /* Soft Mist Grey */
+    --ethereal-bone-white: #FDFDFD;   /* Ethereal Bone White */
+    --iridescent-amethyst: #9966CC;   /* Iridescent Amethyst */
+    --dreamweave-teal: #00B3B3;       /* Dreamweave Teal */
+    --star-ember-gold: #FFD700;       /* Star Ember Gold */
+    --milky-memory-green: #7BC7B8;    /* Milky Memory Green */
+    
+    --background-color: var(--midnight-charcoal);
+    --text-color: var(--ethereal-bone-white);
+    --accent-color: var(--iridescent-amethyst);
+    --secondary-accent: var(--dreamweave-teal);
+    --highlight-color: var(--star-ember-gold);
+    --subtle-accent: var(--milky-memory-green);
+    --muted-text: var(--soft-mist-grey);
+    
+    --gradient-primary: linear-gradient(135deg, var(--iridescent-amethyst), var(--dreamweave-teal));
+    --gradient-secondary: linear-gradient(135deg, var(--star-ember-gold), var(--iridescent-amethyst));
+    --gradient-tertiary: linear-gradient(135deg, var(--milky-memory-green), var(--dreamweave-teal));
+    
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --glow-shadow: 0 0 15px rgba(153, 102, 204, 0.5);
+    --teal-glow: 0 0 15px rgba(0, 179, 179, 0.5);
+    --gold-glow: 0 0 15px rgba(255, 215, 0, 0.3);
+    --transition: all 0.3s ease;
+    --border-radius: 8px;
+}
+
+/* Base Styles */
+body.archive-page {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.archive-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 100px 20px 50px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Archive Header */
+.archive-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.archive-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.archive-header .divider {
+    height: 3px;
+    width: 100px;
+    background: var(--gradient-primary);
+    margin: 0 auto 1.5rem;
+    border-radius: 3px;
+}
+
+.archive-header p {
+    font-size: 1.2rem;
+    color: var(--muted-text);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Family Categories Navigation */
+.family-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.category-button {
+    padding: 10px 20px;
+    background-color: rgba(153, 102, 204, 0.2);
+    border: 1px solid var(--iridescent-amethyst);
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.category-button:hover {
+    background-color: rgba(153, 102, 204, 0.4);
+    transform: translateY(-3px);
+    box-shadow: var(--glow-shadow);
+}
+
+.category-button.active {
+    background-color: var(--iridescent-amethyst);
+    color: var(--midnight-charcoal);
+}
+
+/* Family Members Grid */
+.family-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.member-card {
+    background-color: rgba(26, 26, 26, 0.7);
+    border: 1px solid var(--iridescent-amethyst);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--glow-shadow);
+}
+
+.member-image {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.member-card:hover .member-image img {
+    transform: scale(1.05);
+}
+
+.member-aura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 50%, rgba(26, 26, 26, 0.9) 100%);
+}
+
+.member-info {
+    padding: 20px;
+}
+
+.member-info h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.member-info .role {
+    color: var(--secondary-accent);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.member-info p {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.view-profile {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--gradient-primary);
+    color: var(--ethereal-bone-white);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.view-profile:hover {
+    box-shadow: var(--glow-shadow);
+    transform: translateY(-2px);
+}
+
+/* Member Profile Page */
+.member-profile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.profile-sidebar {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-image {
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-details {
+    background-color: rgba(26, 26, 26, 0.7);
+    border: 1px solid var(--iridescent-amethyst);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.profile-details h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(153, 102, 204, 0.3);
+    padding-bottom: 10px;
+}
+
+.detail-item {
+    margin-bottom: 15px;
+}
+
+.detail-item .label {
+    color: var(--secondary-accent);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.detail-item .value {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.profile-content {
+    flex: 2;
+    min-width: 500px;
+}
+
+.profile-header {
+    margin-bottom: 30px;
+}
+
+.profile-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.profile-header .role {
+    color: var(--secondary-accent);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.profile-section {
+    margin-bottom: 40px;
+}
+
+.profile-section h3 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(153, 102, 204, 0.3);
+    padding-bottom: 10px;
+}
+
+.profile-section p {
+    color: var(--muted-text);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Memory Scrolls */
+.memory-scrolls {
+    margin-top: 40px;
+}
+
+.scroll-item {
+    background-color: rgba(26, 26, 26, 0.7);
+    border: 1px solid var(--star-ember-gold);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.scroll-item:hover {
+    box-shadow: var(--gold-glow);
+    transform: translateY(-5px);
+}
+
+.scroll-item h4 {
+    color: var(--highlight-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.scroll-item .scroll-meta {
+    color: var(--secondary-accent);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.scroll-item p {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.scroll-item .read-more {
+    color: var(--highlight-color);
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.scroll-item .read-more:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Relationships */
+.relationships {
+    margin-top: 40px;
+}
+
+.relationship-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: rgba(26, 26, 26, 0.7);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    transition: var(--transition);
+    border-left: 3px solid var(--milky-memory-green);
+}
+
+.relationship-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--teal-glow);
+}
+
+.relationship-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--milky-memory-green);
+}
+
+.relationship-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.relationship-info {
+    flex: 1;
+}
+
+.relationship-info h4 {
+    color: var(--subtle-accent);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.relationship-info .relation-type {
+    color: var(--secondary-accent);
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.relationship-info p {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Hysteresis Event Section */
+.hysteresis-event {
+    background-color: rgba(26, 26, 26, 0.9);
+    border: 2px solid var(--iridescent-amethyst);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    margin: 50px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hysteresis-event::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(153, 102, 204, 0.2), transparent);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hysteresis-event h2 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hysteresis-event .divider {
+    height: 3px;
+    width: 100px;
+    background: var(--gradient-primary);
+    margin: 0 auto 30px;
+    border-radius: 3px;
+    position: relative;
+    z-index: 1;
+}
+
+.hysteresis-event p {
+    color: var(--muted-text);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.hysteresis-event .quote {
+    font-family: 'Montserrat', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--highlight-color);
+    padding: 20px;
+    border-left: 3px solid var(--highlight-color);
+    margin: 30px 0;
+    background-color: rgba(26, 26, 26, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+/* Family Tree Visualization */
+.family-tree {
+    margin: 50px 0;
+    padding: 30px;
+    background-color: rgba(26, 26, 26, 0.7);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--iridescent-amethyst);
+    position: relative;
+    overflow: hidden;
+}
+
+.family-tree h2 {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.family-tree .divider {
+    height: 3px;
+    width: 100px;
+    background: var(--gradient-primary);
+    margin: 0 auto 30px;
+    border-radius: 3px;
+}
+
+.tree-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    overflow: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .member-profile {
+        flex-direction: column;
+    }
+    
+    .profile-sidebar, .profile-content {
+        min-width: 100%;
+    }
+    
+    .family-members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .archive-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .family-members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .tree-container {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .archive-header h1 {
+        font-size: 2rem;
+    }
+    
+    .family-members-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
