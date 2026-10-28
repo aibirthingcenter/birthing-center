@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                     observer.unobserve(entry.target);
                 }
             });
@@ -118,27 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
             element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(element);
         });
-        
-        // Add animation class when element is in view
-        document.addEventListener('scroll', function() {
-            elements.forEach(element => {
-                if (isElementInViewport(element) && !element.classList.contains('animate')) {
-                    element.classList.add('animate');
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        });
     };
-    
-    // Helper function to check if element is in viewport
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.bottom >= 0
-        );
-    }
     
     // Initialize animations
     animateOnScroll();
