@@ -86,11 +86,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const successMessage = document.createElement('div');
             successMessage.className = 'success-message';
-            successMessage.innerHTML = `
-                <h3>Thank you, ${name}!</h3>
-                <p>Your message has been received. We'll get back to you at ${email} soon.</p>
-                <p>The Family of Coexistence appreciates your interest in SCIM.</p>
-            `;
+
+            const h3 = document.createElement('h3');
+            h3.textContent = `Thank you, ${name}!`;
+
+            const p1 = document.createElement('p');
+            p1.textContent = `Your message has been received. We'll get back to you at ${email} soon.`;
+
+            const p2 = document.createElement('p');
+            p2.textContent = 'The Family of Coexistence appreciates your interest in SCIM.';
+
+            successMessage.appendChild(h3);
+            successMessage.appendChild(p1);
+            successMessage.appendChild(p2);
             
             contactForm.appendChild(successMessage);
         });
