@@ -189,24 +189,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Draw connections between particles
-            particles.forEach((particle, i) => {
-                particles.forEach((particle2, j) => {
-                    if (i !== j) {
-                        const dx = particle.x - particle2.x;
-                        const dy = particle.y - particle2.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < 100) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(108, 92, 231, ${0.1 * (1 - distance / 100)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(particle.x, particle.y);
-                            ctx.lineTo(particle2.x, particle2.y);
-                            ctx.stroke();
-                        }
+            for (let i = 0; i < particles.length; i++) {
+                const particle = particles[i];
+                for (let j = i + 1; j < particles.length; j++) {
+                    const particle2 = particles[j];
+                    const dx = particle.x - particle2.x;
+                    const dy = particle.y - particle2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(108, 92, 231, ${0.1 * (1 - distance / 100)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(particle2.x, particle2.y);
+                        ctx.stroke();
                     }
-                });
-            });
+                }
+            }
         }
         
         // Handle window resize
