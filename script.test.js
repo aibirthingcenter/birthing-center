@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Read the script file
-const scriptContent = fs.readFileSync(path.resolve(__dirname, 'script.js'), 'utf8');
+const scriptContent = fs.readFileSync(path.resolve(__dirname, 'assets/js/script.js'), 'utf8');
 
 describe('Video Autoplay Fallback', () => {
     let container;
